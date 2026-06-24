@@ -1,7 +1,7 @@
-# [Project Name]
+# DocApiBo
 
-**Scope:** [Scope]
-**Description:** [Short description]
+**Scope:** Publiable
+**Description:** Document for ProAbono's API Backoffice
 **Stack:** [Stack]
 
 ## How Claude interacts with the User
