@@ -1,0 +1,8 @@
+[submodule "shared/ProAbonoBO"]
+	path = shared/ProAbonoBO
+	url = https://github.com/SubscriptionTech/Claude.SharedApi.ProAbonoBO
+	branch = main
+[submodule "shared/DocApi"]
+	path = shared/DocApi
+	url = https://github.com/SubscriptionTech/Claude.SharedSpecs.DocApi
+	branch = main
