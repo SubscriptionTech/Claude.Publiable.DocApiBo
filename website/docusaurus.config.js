@@ -1,12 +1,16 @@
 // @ts-check
+import path from 'path';
+import { fileURLToPath } from 'url';
 import {themes as prismThemes} from 'prism-react-renderer';
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 const lightPrismTheme = {
-  plain: {color: '#9CDCFE', backgroundColor: '#333'},
+  plain: { color: '#9CDCFE', backgroundColor: '#333' },
   styles: prismThemes.vsDark.styles,
 };
 const darkPrismTheme = {
-  plain: {color: '#9CDCFE', backgroundColor: '#1F2937'},
+  plain: { color: '#9CDCFE', backgroundColor: '#1F2937' },
   styles: prismThemes.vsDark.styles,
 };
 
@@ -32,6 +36,7 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
+          routeBasePath: 'docs',
           docItemComponent: '@theme/ApiItem',
         },
         blog: false,
@@ -43,14 +48,14 @@ const config = {
   ],
 
   plugins: [
-    './plugins/docusaurus-pagefind',
+    path.join(__dirname, 'plugins/docusaurus-pagefind'),
     [
       'docusaurus-plugin-openapi-docs',
       {
-        id: 'apidocs',
+        id: 'api',
         docsPluginId: 'classic',
         config: {
-          bo: {
+          proabono: {
             specPath: '../shared/ProAbonoBO/open-api/pa-bo-openapi-3.0.3.yaml',
             outputDir: 'docs/api-reference',
             sidebarOptions: {
@@ -87,74 +92,25 @@ const config = {
       },
       footer: {
         style: 'dark',
-        copyright: `Copyright © ${new Date().getFullYear()} ProAbono.`,
+        copyright: `Copyright © ${new Date().getFullYear()} ProAbono`,
       },
       prism: {
         theme: lightPrismTheme,
         darkTheme: darkPrismTheme,
-        additionalLanguages: ['bash', 'json', 'http', 'powershell', 'java', 'python', 'ruby', 'go', 'csharp'],
+        additionalLanguages: ['bash', 'json', 'http'],
       },
       languageTabs: [
-        {
-          highlight: 'bash',
-          language: 'curl',
-          logoClass: 'bash',
-          variants: ['curl'],
-        },
-        {
-          highlight: 'javascript',
-          language: 'javascript',
-          logoClass: 'javascript',
-          variants: ['fetch'],
-        },
-        {
-          highlight: 'javascript',
-          language: 'nodejs',
-          logoClass: 'nodejs',
-          variants: ['native'],
-        },
-        {
-          highlight: 'python',
-          language: 'python',
-          logoClass: 'python',
-          variants: ['requests'],
-        },
-        {
-          highlight: 'csharp',
-          language: 'csharp',
-          logoClass: 'csharp',
-          variants: ['RestSharp'],
-        },
-        {
-          highlight: 'go',
-          language: 'go',
-          logoClass: 'go',
-          variants: ['native'],
-        },
-        {
-          highlight: 'java',
-          language: 'java',
-          logoClass: 'java',
-          variants: ['unirest'],
-        },
-        {
-          highlight: 'ruby',
-          language: 'ruby',
-          logoClass: 'ruby',
-          variants: ['Net::HTTP'],
-        },
-        {
-          highlight: 'http',
-          language: 'http',
-          logoClass: 'http',
-          variants: [''],
-        },
-        {
-          highlight: 'powershell',
-          language: 'powershell',
-          logoClass: 'powershell',
-          variants: ['WebRequest'],
-        },
+        { language: "curl" },
+        { language: "python" },
+        { language: "javascript" },
+        { language: "nodejs" },
+        { language: "php" },
+        { language: "go" },
+        { language: "java" },
+        { language: "csharp" },
+        { language: "ruby" },
+        { language: "http" },
+        { language: "powershell" },
       ],
     }),
 };
