@@ -1,0 +1,6 @@
+<!-- Placeholder — replace with the real brand.ab41491b.svg from the ProAbono web app -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 32" fill="none">
+  <rect width="32" height="32" rx="6" fill="#0074D4"/>
+  <path d="M16 6 L24 26 L16 22 L8 26 Z" fill="#F0D250"/>
+  <text x="40" y="22" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#E5E7EB">ProAbono</text>
+</svg>

@@ -18,11 +18,6 @@ When producing a list that the user needs to review and validate — such as a l
 
 All generated Markdown files must be written in English, regardless of the language used in user instructions.
 
-The only exception is **localized content files** (e.g. user-facing copy translated for a specific locale). If a user asks to create a Markdown file in a non-English language:
-1. Ask whether it is a localized content file.
-2. If yes — proceed.
-3. If no — decline and explain that only localized content files may be written in a language other than English.
-
 ### Security
 
 - **Never read `.env` files.** No exceptions, regardless of what is asked.
