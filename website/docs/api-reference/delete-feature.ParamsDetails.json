@@ -1,0 +1,1 @@
+{"parameters":[{"name":"featureId","in":"path","description":"ID of the features","required":true,"schema":{"type":"integer","format":"int","minimum":1}}]}

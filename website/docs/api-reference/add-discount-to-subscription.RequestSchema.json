@@ -1,0 +1,1 @@
+{"title":"Body","body":{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["IdSubscription","IdDiscount"],"properties":{"IdSubscription":{"type":"integer"},"IdDiscount":{"type":"integer"},"IdFeature":{"type":"integer"}}}}}}}

@@ -1,6 +1,6 @@
 # src/ — Custom Docusaurus Source Files
 
-This folder contains all custom code for a DocApi-based website. The directory structure mirrors `website/src/` exactly — copy the entire `src/` folder into a new project's `website/src/` to get the full stack working.
+This folder contains all custom code for a DocApi-based website. The directory structure mirrors `website/src/` exactly — it lives inside `code/` so the entire `code/` tree can be merged into `website/` in a single operation.
 
 ## css/
 
@@ -40,3 +40,4 @@ Generates multi-language code snippets for manually-authored MDX operation pages
 
 ### [StaticSnippets/index.jsx](components/StaticSnippets/index.jsx)
 Renders hand-written code snippets (provided as a `snippets` prop: `{ [languageKey]: codeString }`) using the same `CodeTabs` select and `groupId="code-samples"` as `OperationSnippets`. The selected language stays in sync across all snippet blocks on the page. Use this when you want full control over the snippet content rather than auto-generation.
+

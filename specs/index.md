@@ -14,6 +14,12 @@ All ProAbono API documentation websites share a common foundation. Read the DocA
 
 Shared spec root: [`shared/DocApi/`](../shared/DocApi/)
 
+## Design — overrides
+
+[design/](design/) contains design specifications that override the shared DocApi design for this particular website.
+
+See [design/index.md](design/index.md) for the full file list.
+
 ## 1. Functional — what to build
 
 [functional/](functional/) describes the website from the user's perspective: what pages exist, what they contain, what the navigation looks like, and what the visual design is. Stack-agnostic.

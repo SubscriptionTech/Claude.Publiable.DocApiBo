@@ -5,47 +5,38 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
+// Docusaurus injects Prism theme colors as inline styles on every code block,
+// which overrides any CSS variable declaration. The only way to control
+// --prism-background-color from CSS is to make the JS theme object agree
+// with the design tokens from the start.
 const lightPrismTheme = {
-  plain: { color: '#9CDCFE', backgroundColor: '#333' },
+  plain: { color: '#9CDCFE', backgroundColor: '#333' },   // matches --pad-background-sidebar (light)
   styles: prismThemes.vsDark.styles,
 };
 const darkPrismTheme = {
-  plain: { color: '#9CDCFE', backgroundColor: '#1F2937' },
+  plain: { color: '#9CDCFE', backgroundColor: '#1F2937' }, // matches --pad-background-sidebar (dark)
   styles: prismThemes.vsDark.styles,
 };
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'API Backoffice',
-  tagline: 'ProAbono Back-Office API Reference',
+  title: 'API Backoffice | Reference',
+  tagline: 'ProAbono API documentation',
   favicon: 'img/favicon.ico',
-  url: 'https://your-site.azurestaticapps.net',
-  baseUrl: '/',
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
 
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+  future: {
+    v4: true,
   },
 
-  presets: [
-    [
-      'classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
-        docs: {
-          sidebarPath: './sidebars.js',
-          routeBasePath: 'docs',
-          docItemComponent: '@theme/ApiItem',
-        },
-        blog: false,
-        theme: {
-          customCss: './src/css/custom.css',
-        },
-      }),
-    ],
-  ],
+  url: 'https://your-site.azurestaticapps.net',
+  baseUrl: '/',
+
+  onBrokenLinks: 'warn',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
 
   plugins: [
     path.join(__dirname, 'plugins/docusaurus-pagefind'),
@@ -55,7 +46,7 @@ const config = {
         id: 'api',
         docsPluginId: 'classic',
         config: {
-          proabono: {
+          api: {
             specPath: '../shared/ProAbonoBO/open-api/pa-bo-openapi-3.0.3.yaml',
             outputDir: 'docs/api-reference',
             sidebarOptions: {
@@ -70,18 +61,41 @@ const config = {
 
   themes: ['docusaurus-theme-openapi-docs'],
 
+  presets: [
+    [
+      'classic',
+      /** @type {import('@docusaurus/preset-classic').Options} */
+      ({
+        docs: {
+          sidebarPath: './sidebars.js',
+          routeBasePath: 'docs',
+          docItemComponent: '@theme/ApiItem',
+          // Skips the auto-generated summary page (a hand-authored page is used instead)
+          exclude: ['**/proabono-bo.info.mdx'],
+        },
+        blog: false,
+        theme: {
+          customCss: './src/css/custom.css',
+        },
+      }),
+    ],
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      image: 'img/logo.svg',
+      colorMode: {
+        respectPrefersColorScheme: true,
+      },
       navbar: {
-        title: 'API Backoffice',
+        title: 'API Backoffice | Reference',
         logo: {
           alt: 'ProAbono',
           src: 'img/logo.svg',
         },
+        style: 'dark',
         items: [
-          {type: 'search', position: 'right'},
+          { type: 'search', position: 'right' },
           {
             href: 'https://github.com/SubscriptionTech/Claude.Publiable.DocApiBo',
             position: 'right',
@@ -93,11 +107,6 @@ const config = {
       footer: {
         style: 'dark',
         copyright: `Copyright © ${new Date().getFullYear()} ProAbono`,
-      },
-      prism: {
-        theme: lightPrismTheme,
-        darkTheme: darkPrismTheme,
-        additionalLanguages: ['bash', 'json', 'http'],
       },
       languageTabs: [
         { language: "curl" },
@@ -112,6 +121,11 @@ const config = {
         { language: "http" },
         { language: "powershell" },
       ],
+      prism: {
+        theme: lightPrismTheme,
+        darkTheme: darkPrismTheme,
+        additionalLanguages: ['bash', 'json', 'http'],
+      },
     }),
 };
 

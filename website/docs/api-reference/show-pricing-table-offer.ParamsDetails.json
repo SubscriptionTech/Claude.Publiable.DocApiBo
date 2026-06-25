@@ -1,0 +1,1 @@
+{"parameters":[{"name":"pricingTableOfferId","in":"path","description":"ID of the pricing table offer","required":true,"schema":{"type":"integer","format":"int","minimum":1}}]}

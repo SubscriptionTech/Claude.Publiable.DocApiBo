@@ -1,0 +1,112 @@
+---
+sidebar_position: 1
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Authentication
+
+The ProAbono API Backoffice uses **HTTP Basic Auth** — an Agent Key and an API Key encoded together in the `Authorization` header.
+
+## Getting your credentials
+
+1. Log into the ProAbono backoffice.
+2. Go to the **Integration** section.
+3. Copy the **Agent Key** and the **API Key**.
+
+:::warning
+Treat these keys like passwords. Store them in environment variables or a secrets manager — never commit them to source code.
+:::
+
+## Base URL
+
+All API calls share a single base URL:
+
+```
+https://via.proabono.com
+```
+
+:::tip
+Most GET endpoints require a `?idBusiness=<IdBusiness>` query parameter. Always include it as a best practice — even when the endpoint does not strictly require it.
+:::
+
+`IdBusiness` is the internal numeric identifier of your Business, visible in the backoffice Integration section.
+
+## The Authorization header
+
+Credentials are encoded as:
+
+```
+Authorization: Basic <base64(AgentKey:ApiKey)>
+```
+
+<Tabs groupId="lang">
+<TabItem value="curl" label="curl">
+
+```bash
+curl https://via.proabono.com/v1/Customers?idBusiness=<IdBusiness> \
+  -u "<AgentKey>:<ApiKey>"
+```
+
+</TabItem>
+<TabItem value="js" label="JavaScript">
+
+```js
+const response = await fetch(
+  'https://via.proabono.com/v1/Customers?idBusiness=<IdBusiness>',
+  {
+    headers: {
+      Authorization: 'Basic ' + btoa('<AgentKey>:<ApiKey>'),
+    },
+  }
+);
+```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python
+import requests
+from base64 import b64encode
+
+credentials = b64encode(b"<AgentKey>:<ApiKey>").decode()
+response = requests.get(
+    "https://via.proabono.com/v1/Customers",
+    params={"idBusiness": "<IdBusiness>"},
+    headers={"Authorization": f"Basic {credentials}"},
+)
+```
+
+</TabItem>
+<TabItem value="csharp" label="C#">
+
+```csharp
+using System.Net.Http.Headers;
+using System.Text;
+
+var client = new HttpClient();
+var credentials = Convert.ToBase64String(Encoding.ASCII.GetBytes("<AgentKey>:<ApiKey>"));
+client.DefaultRequestHeaders.Authorization =
+    new AuthenticationHeaderValue("Basic", credentials);
+
+var response = await client.GetAsync(
+    "https://via.proabono.com/v1/Customers?idBusiness=<IdBusiness>"
+);
+```
+
+</TabItem>
+</Tabs>
+
+:::note
+All requests and responses use `Content-Type: application/json`.
+:::
+
+## Auth-related error codes
+
+| Status | Meaning |
+|--------|---------|
+| `401 Unauthorized` | Credentials are missing or invalid |
+| `403 Forbidden` | Credentials are valid but the action is not permitted |
+
+See [Conventions](../concepts/conventions#http-status-codes) for the full list of HTTP status codes.

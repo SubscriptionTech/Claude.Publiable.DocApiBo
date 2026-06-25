@@ -10,7 +10,7 @@ See [`shared/DocApi/functional/index.md`](../../shared/DocApi/functional/index.m
 
 ## Project overrides
 
-*None yet — add overrides here as the project diverges from the DocApi defaults.*
+- [pages/index.md](pages/index.md) — page-by-page specifications
 
 ## Related
 
