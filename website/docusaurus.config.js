@@ -68,7 +68,9 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          routeBasePath: 'docs',
+          // Serve docs at the site root (no /docs prefix). The Introduction
+          // page carries `slug: /`, so it answers `/` directly.
+          routeBasePath: '/',
           docItemComponent: '@theme/ApiItem',
           // Skips the auto-generated summary page (a hand-authored page is used instead)
           exclude: ['**/proabono-bo.info.mdx'],

@@ -99,7 +99,7 @@ If the submodule was just updated (Action 1 was also checked), you can instead d
 
 **4b. Read the source spec files** that have changed (or all of them if you cannot determine what changed).
 
-**4c. Read the corresponding authored pages** in the website source (under `website/docs/` or `website/src/pages/`). Consult `specs/pipeline/authoring.md` and `specs/functional/` for the page locations.
+**4c. Read the corresponding authored pages** in the website source (under `website/docs/`). Consult `specs/pipeline/authoring.md` and `specs/functional/` for the page locations.
 
 **4d. For each discrepancy** — a case where the source spec says X but the authored website page says Y, or something present in the spec is missing from the page — present it to the user using a numbered list. For each item, offer at least 2 options, for example:
 - **Option A — Update the website page** to reflect the spec change (describe what would change).
