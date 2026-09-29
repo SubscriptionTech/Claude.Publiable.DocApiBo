@@ -1,1 +1,1 @@
-{"title":"Body"}
+{"title":"Body","body":{"description":"","required":true,"content":{"application/json":{"schema":{"description":"Updatable attributes of a pricing table offer slot. IdPricingTable and IdOffer are set when the offer is added to the table and read-only afterwards — remove the slot and add a new one to re-target it.","type":"object","properties":{"Order":{"type":"integer","description":"Define the position of the Offer among all Offers in the PricingTable when displayed in the hosted pages."}},"title":"PricingTableOfferUpdate"}}}}}
