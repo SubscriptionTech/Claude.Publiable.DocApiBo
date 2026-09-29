@@ -12,12 +12,25 @@ When the user asks for a proposal or proposition, Claude must **not** perform th
 
 ### Lists requiring validation
 
-When producing a list that the user needs to review and validate — such as a list of detected issues, proposed phases, or items to approve — always use sequential numbers (1, 2, 3…). This makes it easy to refer to a specific item by number. Never use hybrid schemes like 1, 2a, 2b, 3. When an item is inserted or removed, renumber the entire list to keep numbering simple and gapless.
+When producing a list that the user needs to review and validate — such as a list of detected issues, proposed phases, or items to approve — always use sequential numbers (1, 2, 3…). This makes it easy to refer to a specific item by number. A bold prefix may be added in front of the number (e.g. **user-1**, **done-1**) when the answer contains several lists and the numbers alone would be ambiguous — see [When Claude makes a complex answer](#when-claude-makes-a-complex-answer). Never use hybrid schemes like 1, 2a, 2b, 3. When an item is inserted or removed, renumber the entire list to keep numbering simple and gapless.
+
+### When Claude makes a complex answer
+
+When an answer contains more than the summary of the actions performed — for example decisions to settle, open points, or things the user should be aware of (list not exhaustive) — all of those points must be gathered at the very end of the answer, in a single zone introduced by its own heading (a Markdown heading or a bold line) reading **For you to check**, so the user cannot miss them.
+
+That zone is the only one carrying a heading: the rest of the answer keeps its usual form, with no heading of its own.
+
+Every numbered point of such an answer must carry a prefix, written in bold so it stands out in the flow of the text, so that two lists never share the same numbering:
+
+- **done-1**, **done-2**… — a task Claude has done.
+- **user-1**, **user-2**… — a point the user needs to check, decide, or be aware of.
+
+Never number two lists `1, 2, 3…` in the same answer: a reference like **done-2** or **user-3** must always designate exactly one point.
 
 ### Working with specs
 
 - **Local specs** are the specs located in the root `specs/` folder of this project.
-- **Shared specs** are specs located inside a `shared/` folder. When multiple shared utilities have been added, the name of the shared utility is used for disambiguation (e.g. "the DocApi specs").
+- **Shared specs** are specs located inside a `shared/` folder. When multiple shared utilities have been added, the name of the shared utility is used for disambiguation.
 
 When the user asks to do anything with the specs, default to the local specs unless they explicitly reference a shared utility by name or are currently working on a file inside a shared folder. If there is any doubt, ask the user which specs to update.
 
