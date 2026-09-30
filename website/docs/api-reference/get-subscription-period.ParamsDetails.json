@@ -1,0 +1,1 @@
+{"parameters":[{"name":"subscriptionPeriodId","in":"path","required":true,"description":"Internal subscription period ID.","schema":{"type":"integer"}}]}

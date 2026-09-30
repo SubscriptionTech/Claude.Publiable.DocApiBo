@@ -47,7 +47,7 @@ const config = {
         docsPluginId: 'classic',
         config: {
           api: {
-            specPath: '../shared/ProAbonoBO/open-api/pa-bo-openapi-0.1.yaml',
+            specPath: '../shared/ProAbonoBO/open-api/pa-bo-openapi-0.1.0.yaml',
             outputDir: 'docs/api-reference',
             sidebarOptions: {
               groupPathsBy: 'tag',

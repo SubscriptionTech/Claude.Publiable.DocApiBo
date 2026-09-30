@@ -1,0 +1,1 @@
+{"parameters":[{"name":"subscriptionFeatureId","in":"path","required":true,"description":"Internal subscription feature ID.","schema":{"type":"integer"}}]}

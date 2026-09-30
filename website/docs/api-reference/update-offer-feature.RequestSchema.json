@@ -1,1 +1,1 @@
-{"title":"Body"}
+{"title":"Body","body":{"description":"Fields to change on the offer feature. The accepted fields are not documented yet — see the note on the `offer-feature.update` resource doc.","required":true,"content":{"application/json":{"schema":{"type":"object","description":"Fields accepted when updating an offer feature.\n\nThe accepted body is not documented yet: the OfferFeature object shape has to be defined first. Until then this schema declares no field, and the resource doc for `offer-feature.update` carries the same gap.","title":"OfferFeatureUpdate"}}}}}

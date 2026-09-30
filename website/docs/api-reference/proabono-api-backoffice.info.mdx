@@ -1,0 +1,86 @@
+---
+id: proabono-api-backoffice
+title: "ProAbono API Backoffice"
+description: "The API Backoffice is the server-to-server interface to ProAbono. It exposes the catalogue (offers, features, pricing tables), the distribution side (customers), the subscription lifecycle, and the resulting finance records (invoices, invoice lines, payments, balance lines)."
+sidebar_label: Introduction
+sidebar_position: 0
+hide_title: true
+custom_edit_url: null
+---
+
+import ApiLogo from "@theme/ApiLogo";
+import Heading from "@theme/Heading";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+import Export from "@theme/ApiExplorer/Export";
+
+<span
+  className={"theme-doc-version-badge badge badge--secondary"}
+  children={"Version: 0.1.0"}
+>
+</span>
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"ProAbono API Backoffice"}
+>
+</Heading>
+
+
+
+The API Backoffice is the server-to-server interface to ProAbono. It exposes the catalogue (offers, features, pricing tables), the distribution side (customers), the subscription lifecycle, and the resulting finance records (invoices, invoice lines, payments, balance lines).
+
+Conventions that apply to every endpoint:
+
+* **Authentication** — HTTP Basic, using the agent key as the user name and the API key as the password. Both keys are available in the ProAbono backoffice, *Integration* section.
+* **Content type** — `application/json` for every request and response.
+* **Field naming** — PascalCase. Identifiers shared with your own system are prefixed with `Reference` (`ReferenceCustomer`, `ReferenceOffer`); the internal identifiers assigned by ProAbono are `Id` and `Id<Resource>`.
+* **Amounts** — integers, in the smallest unit of the currency (cents).
+* **Rates** — integers, in basis points: `2000` means 20%.
+* **Dates** — ISO 8601 strings, for example `2025-01-31T00:00:00Z`.
+* **Pagination** — 1-based, through `page` and `sizePage`. `sizePage=0` returns the total count only, without fetching any item.
+
+<div
+  style={{"marginBottom":"2rem"}}
+>
+  <Heading
+    id={"authentication"}
+    as={"h2"}
+    className={"openapi-tabs__heading"}
+    children={"Authentication"}
+  >
+  </Heading><SchemaTabs
+    className={"openapi-tabs__security-schemes"}
+  >
+    <TabItem
+      label={"HTTP: Basic Auth"}
+      value={"basicAuth"}
+    >
+      
+      
+      HTTP Basic authentication. The user name is the agent key and the password is the API key; both are available in the ProAbono backoffice, *Integration* section.
+      
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <th>
+                Security Scheme Type:
+              </th><td>
+                http
+              </td>
+            </tr><tr>
+              <th>
+                HTTP Authorization Scheme:
+              </th><td>
+                basic
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </TabItem>
+  </SchemaTabs>
+</div>
+      
