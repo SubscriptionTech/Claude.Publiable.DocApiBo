@@ -4,6 +4,12 @@
 **Description:** API Backoffice documentation for ProAbono
 **Stack:** [Stack]
 
+## Key terms
+
+These terms hold project-wide.
+
+- **OpenAPI spec** — the OpenAPI spec of the API Backoffice, as defined in the key terms of [shared/ProAbonoBO/CLAUDE.md](shared/ProAbonoBO/CLAUDE.md).
+
 ## How Claude interacts with the User
 
 ### When the user asks for a proposal
@@ -69,7 +75,7 @@ When implementing or auditing the website, local specs in `specs/` always take p
 
 ## Website specs
 
-The [specs/](specs/) folder contains the full requirements for the ProAbono API Backoffice documentation website. Read [specs/index.md](specs/index.md) first to understand its structure, then consult the relevant files before implementing any part of the site.
+The [specs/](specs/) folder contains the full requirements for the ProAbono API Backoffice documentation website. Read [specs/CLAUDE.md](specs/CLAUDE.md) first to understand its structure, then consult the relevant files before implementing any part of the site.
 
 ## Shared utilities
 

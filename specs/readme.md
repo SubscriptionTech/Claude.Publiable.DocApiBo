@@ -2,7 +2,7 @@
 
 This folder contains the full requirements for the **API Backoffice documentation website**.
 
-Read [index.md](index.md) first to understand its structure, then consult the relevant files before implementing any part of the site.
+Read [CLAUDE.md](CLAUDE.md) first to understand its structure, then consult the relevant files before implementing any part of the site.
 
 ---
 
@@ -19,7 +19,7 @@ Use this prompt to regenerate the API reference pages after updating the `shared
 ```
 Regenerate the API reference from the OpenAPI spec.
 
-First compare the version in the `specPath` of `website/docusaurus.config.js` with the current file version stated in `shared/ProAbonoBO/open-api/CLAUDE.md`. If they differ, show me both and ask before pointing `specPath` at the current version.
+First compare the version in the `specPath` of `website/docusaurus.config.js` with the current file version of the OpenAPI spec. If they differ, show me both and ask before pointing `specPath` at the current version.
 
 Then run the generation command from the website folder: `npm run gen-api-docs`
 
@@ -40,7 +40,7 @@ Use this prompt to find and resolve discrepancies between this specs folder and 
 Audit the specs folder against the actual website, then walk me through each discrepancy.
 
 Steps:
-1. Read specs/index.md to understand the specs structure, then read all relevant specs files.
+1. Read specs/CLAUDE.md to understand the specs structure, then read all relevant specs files.
 2. Read the website source (website/src/, website/static/, and any config files) to understand what is actually built.
 3. Produce a complete numbered list of discrepancies — things where the specs says X but the website does Y (or vice versa).
 4. Present discrepancy #1 only: describe what the specs says, what the website actually does, and propose two options — fix the specs to match the website, or fix the website to match the specs. Ask me which to apply.

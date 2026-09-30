@@ -10,7 +10,7 @@ See [`shared/DocApi/functional/index.md`](../../shared/DocApi/functional/index.m
 
 ## Project overrides
 
-- [pages/index.md](pages/index.md) — page-by-page specifications
+- [pages/CLAUDE.md](pages/CLAUDE.md) — page-by-page specifications
 
 ## Related
 
