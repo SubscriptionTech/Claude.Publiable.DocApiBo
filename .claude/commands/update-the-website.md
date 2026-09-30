@@ -66,6 +66,10 @@ Report whether the submodule was updated (include the new commit hash if it chan
 
 ### Action 3 — Re-generate the API reference
 
+**3a. Check the OpenAPI spec version.**
+Read the current file version of the OpenAPI spec in `shared/ProAbonoBO/open-api/CLAUDE.md`, then the version in the `specPath` of `website/docusaurus.config.js`. If they match, go on to 3b. If they differ, tell the user both versions and ask whether to point `specPath` at the current version. Update `specPath` only on the user's approval, then go on to 3b. See [specs/technical/index.md](../../specs/technical/index.md#openapi-spec-version-in-specpath).
+
+**3b. Run the generation.**
 Run the following command from the `website/` folder:
 
 ```

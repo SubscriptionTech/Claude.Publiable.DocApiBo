@@ -10,7 +10,11 @@ See [`shared/DocApi/technical/index.md`](../../shared/DocApi/technical/index.md)
 
 ## Project overrides
 
-*None yet — add overrides here as the project diverges from the DocApi defaults.*
+### OpenAPI spec version in `specPath`
+
+The `specPath` of the `docusaurus-plugin-openapi-docs` plugin, in `website/docusaurus.config.js`, points to the current version of the OpenAPI spec. That version is the file version stated in [shared/ProAbonoBO/open-api/CLAUDE.md](../../shared/ProAbonoBO/open-api/CLAUDE.md), which also describes how the file name is built from it.
+
+A new version of the OpenAPI spec is a new file, and the previous files stay in the submodule, so `specPath` does not move to a new version on its own. Before regenerating the API reference, compare the version in `specPath` with the current file version. When they differ, ask the user before pointing `specPath` at the new file.
 
 ## Related
 
