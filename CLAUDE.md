@@ -64,6 +64,8 @@ When the user says **"update the website"** (or any close paraphrase), invoke th
 
 - The name of the API is **"API Backoffice"**, not "Backoffice API". Never rename or reorder these words.
 
+Cookie management on this website comes from the ConsentAnalytics shared utility: read `shared/ConsentAnalytics/CLAUDE.md` before any task that touches cookies, the consent or a third-party service.
+
 ### Website and specs sync
 
 The website and the `specs/` folder must stay in sync:
@@ -84,3 +86,4 @@ Read the following files for context before answering questions about this proje
 <!-- populated by pa-shared-add -->
 - shared/ProAbonoBO/CLAUDE.md
 - shared/DocApi/CLAUDE.md
+- shared/ConsentAnalytics/CLAUDE.md

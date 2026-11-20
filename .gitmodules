@@ -6,3 +6,7 @@
 	path = shared/DocApi
 	url = https://github.com/SubscriptionTech/Claude.SharedSpecs.DocApi
 	branch = main
+[submodule "shared/ConsentAnalytics"]
+	path = shared/ConsentAnalytics
+	url = https://github.com/SubscriptionTech/Claude.SharedThird.ConsentAnalytics
+	branch = main
