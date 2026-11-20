@@ -1,9 +1,30 @@
 // @ts-check
 import path from 'path';
+import { createRequire } from 'module';
 import { fileURLToPath } from 'url';
 import {themes as prismThemes} from 'prism-react-renderer';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const require = createRequire(import.meta.url);
+
+// The typefaces are served by the site itself, never by Google Fonts: a request
+// to a third party before the visitor's cookie choice is forbidden by the
+// ConsentAnalytics shared utility. `customCss` resolves a relative path against
+// the site, so each package stylesheet is resolved to an absolute path.
+const fontStylesheets = [
+  '@fontsource/inter/400.css',
+  '@fontsource/inter/500.css',
+  '@fontsource/inter/600.css',
+  '@fontsource/inter/700.css',
+  '@fontsource/jetbrains-mono/400.css',
+].map((stylesheet) => require.resolve(stylesheet));
+
+// Cookie consent shared by every ProAbono website (shared/ConsentAnalytics,
+// integration.md § 2). Both files are loaded from docs.proabono.com, never
+// copied. `api_reference` is the identifier of the API reference websites;
+// there is never an Intercom chat here, so no `data-pa-chat`.
+const consentOrigin = 'https://docs.proabono.com';
+const consentBase = `${consentOrigin}/shared/pa/v1`;
 
 // Docusaurus injects Prism theme colors as inline styles on every code block,
 // which overrides any CSS variable declaration. The only way to control
@@ -28,8 +49,29 @@ const config = {
     v4: true,
   },
 
-  url: 'https://your-site.azurestaticapps.net',
+  url: 'https://ref-api-bo.proabono.com',
   baseUrl: '/',
+
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: { rel: 'preconnect', href: consentOrigin },
+    },
+    {
+      tagName: 'link',
+      attributes: { rel: 'stylesheet', href: `${consentBase}/proabono-consent.css` },
+    },
+    {
+      tagName: 'script',
+      attributes: {
+        src: `${consentBase}/proabono-consent.js`,
+        defer: true,
+        'data-pa-site': 'api_reference',
+      },
+    },
+  ],
+
+  clientModules: [path.join(__dirname, 'src/clientModules/consentLink.js')],
 
   onBrokenLinks: 'warn',
   markdown: {
@@ -77,7 +119,7 @@ const config = {
         },
         blog: false,
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: [...fontStylesheets, './src/css/custom.css'],
         },
       }),
     ],
@@ -108,6 +150,13 @@ const config = {
       },
       footer: {
         style: 'dark',
+        links: [
+          {
+            // Reopens the cookie consent preferences (ConsentAnalytics,
+            // integration.md § 3). The text is fixed by the utility.
+            html: '<a class="footer__link-item" href="#" data-cc="show-preferencesModal">Manage my consents</a>',
+          },
+        ],
         copyright: `Copyright © ${new Date().getFullYear()} ProAbono`,
       },
       languageTabs: [

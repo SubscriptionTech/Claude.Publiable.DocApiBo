@@ -7,6 +7,13 @@ This folder contains all custom code for a DocApi-based website. The directory s
 ### [custom.css](css/custom.css)
 Global stylesheet for the entire site. Defines the `--pad-*` design token system (colors, typography, spacing) for both light and dark modes, maps them to Infima variables, and styles: navbar, sidebar, inline code, code blocks, tables, admonitions, breadcrumbs, OpenAPI explorer panels, and the Pagefind search dropdown. **This is the primary file to customize when rebranding for a new API.**
 
+## clientModules/
+
+Modules loaded on every page before React renders, registered in `clientModules` of `docusaurus.config.js`.
+
+### [consentLink.js](clientModules/consentLink.js)
+Opens the cookie consent preferences on a click of a `data-cc="show-preferencesModal"` link — the footer's "Manage my consents" — that the consent script did not bind because the footer was drawn after it started (Docusaurus changes pages without reloading). Skips clicks the script already handled (`defaultPrevented`); does nothing when the script is absent.
+
 ## theme/
 
 Swizzled Docusaurus theme components. These override the defaults from `docusaurus-theme-openapi-docs` without forking the package.
