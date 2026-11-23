@@ -87,5 +87,4 @@ Read the following files for context before answering questions about this proje
 - shared/ProAbonoBO/CLAUDE.md
 - shared/DocApi/CLAUDE.md
 - shared/ConsentAnalytics/CLAUDE.md
-- shared/DemoSite/CLAUDE.md
 - shared/Front2026/CLAUDE.md
