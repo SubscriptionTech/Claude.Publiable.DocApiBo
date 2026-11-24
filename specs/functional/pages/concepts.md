@@ -16,7 +16,7 @@ Introduce the ProAbono data model. Help developers understand the entities and t
 
 #### 1. Core concepts diagram
 
-A full-width SVG diagram illustrating the entity relationships. Update this diagram when the entity model changes.
+A full-width SVG diagram illustrating the entity relationships, drawn in the colours and the font of the site, so that it follows the theme in force (light or dark). Its description is readable by assistive technologies. Update this diagram when the entity model changes.
 
 #### 2. Glossary
 

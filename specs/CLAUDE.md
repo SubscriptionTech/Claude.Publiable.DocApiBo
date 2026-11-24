@@ -1,6 +1,6 @@
 # specs/ — Website Specification
 
-This folder contains the full requirements for the **API Backoffice documentation website**.
+This folder contains the requirements and specifications for the **API Backoffice documentation website**.
 
 Its purpose is to give a language model (such as Claude Code) everything it needs to implement the website from scratch, without any prior context.
 
@@ -8,7 +8,10 @@ Never modify files in this folder unless the user explicitly asks to update the 
 
 ## How to use this folder
 
-Before implementing any part of the site, read the sections below in order, then consult the relevant files they link to.
+Read this file first, then follow the links below in order before implementing any part of the site. The specification has two layers:
+
+1. **Shared base (DocApi)** — applies to all ProAbono API documentation websites
+2. **API Backoffice overrides** — the files of this folder; they hold only what is specific to this website and take precedence over DocApi
 
 ## Shared base specifications (DocApi)
 
@@ -16,11 +19,7 @@ All ProAbono API documentation websites share a common foundation. Read the DocA
 
 Shared spec root: [`shared/DocApi/`](../shared/DocApi/)
 
-## Design — overrides
-
-[design/](design/) contains design specifications that override the shared DocApi design for this particular website.
-
-See [design/CLAUDE.md](design/CLAUDE.md) for the full file list.
+The scope of each category and the cross-referencing rule are defined in DocApi: see [`shared/DocApi/CLAUDE.md`](../shared/DocApi/CLAUDE.md) and the **This folder must NOT contain** section of each category's `CLAUDE.md`.
 
 ## 1. Functional — what to build
 
@@ -36,6 +35,12 @@ See [pipeline/CLAUDE.md](pipeline/CLAUDE.md) for the full file list.
 
 ## 3. Technical — how it is implemented
 
-[technical/](technical/) describes the technical choices: framework, plugin configuration, build commands, deployment.
+[technical/](technical/) describes the technical choices: framework, plugin configuration, build commands, deployment. Contains everything that would change if the stack were replaced.
 
 See [technical/CLAUDE.md](technical/CLAUDE.md) for the full file list.
+
+## Relationship to the API specs
+
+The website documents the ProAbono API Backoffice. The API specs live in [shared/ProAbonoBO/](../shared/ProAbonoBO/). The website implementation must treat those specs as the source of truth for all API-related content.
+
+**This website is public documentation.** When working on any part of the API Reference — content, navigation, grouping, or ordering — read [`shared/ProAbonoBO/specs/authoring.md`](../shared/ProAbonoBO/specs/authoring.md) first. It is the mandatory source of truth for how resources are presented in public-facing targets.

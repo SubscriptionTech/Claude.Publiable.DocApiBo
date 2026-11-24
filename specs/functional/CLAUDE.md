@@ -6,7 +6,7 @@ Everything here is stack-agnostic. An implementer reading only this folder shoul
 
 ## Shared DocApi files (read first)
 
-See [`shared/DocApi/functional/index.md`](../../shared/DocApi/functional/index.md) for the full list of shared functional specifications.
+See [`shared/DocApi/functional/CLAUDE.md`](../../shared/DocApi/functional/CLAUDE.md) for the full list of shared functional specifications.
 
 ## Project overrides
 

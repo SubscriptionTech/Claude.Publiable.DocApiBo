@@ -6,7 +6,7 @@ It covers: what triggers content generation, what the inputs are, what the outpu
 
 ## Shared DocApi files (read first)
 
-See [`shared/DocApi/pipeline/index.md`](../../shared/DocApi/pipeline/index.md) for the full list of shared pipeline specifications.
+See [`shared/DocApi/pipeline/CLAUDE.md`](../../shared/DocApi/pipeline/CLAUDE.md) for the full list of shared pipeline specifications.
 
 ## Project overrides
 
