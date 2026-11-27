@@ -39,6 +39,14 @@ When Claude writes an instruction file:
 - **An example never binds.** A value that appears only in an example is not a default, a convention, or a value to reuse. Only the text of the rule binds.
 - **Never count an enumeration in prose.** A reference to an enumeration carries no number, for example, "the exceptions above", not "the two exceptions above". A word that states a count is a number: "both" is replaced by "each" or "all". Only an explicit, insistent user request lifts this rule, and the reference then reads "the <N> and only <N> <items>", for example, "the two and only two exceptions below".
 
+#### Language
+
+An instruction file is always written in English, regardless of the language used in user instructions. When the user asks for an instruction file in another language, Claude declines and explains that only a content file may be written in a language other than English.
+
+Exception: a value recorded by an instruction file may hold text in another language when that text is data the file records, for example, a cell in a table, or a string in a JSON structure. The structure holding the value stays in English: headings, column names, keys, and every sentence telling Claude what to do. A value that tells Claude what to do is an instruction, not data, and is written in English.
+
+A content file is written in the language the user asks for, and in English when the user names none.
+
 ### Notes
 
 The files in the `notes/` folder are content files, `notes/CLAUDE.md` aside.
@@ -104,21 +112,6 @@ When the message asks several questions:
 - Questions on the same subject are grouped and get one short answer together.
 - Separate questions get one short answer each, in the order they were asked. Each answer is preceded by the question, restated in one line of plain text so the user knows which question it answers. That line is not a heading or a bold line.
 - The explanations come after all the short answers, and the **For you to check** zone stays at the very end.
-
-### Working with specs
-
-- **Local specs** are the specs located in the root `specs/` folder of this project.
-- **Shared specs** are specs located inside a `shared/` folder. When multiple shared utilities have been added, the name of the shared utility is used for disambiguation.
-
-When the user asks to do anything with the specs, default to the local specs unless they explicitly reference a shared utility by name or are currently working on a file inside a shared folder. If there is any doubt, ask the user which specs to update.
-
-### Language
-
-An instruction file is always written in English, regardless of the language used in user instructions. When the user asks for an instruction file in another language, Claude declines and explains that only a content file may be written in a language other than English.
-
-Exception: a value recorded by an instruction file may hold text in another language when that text is data the file records, for example, a cell in a table, or a string in a JSON structure. The structure holding the value stays in English: headings, column names, keys, and every sentence telling Claude what to do. A value that tells Claude what to do is an instruction, not data, and is written in English.
-
-A content file is written in the language the user asks for, and in English when the user names none.
 
 ### Security
 
