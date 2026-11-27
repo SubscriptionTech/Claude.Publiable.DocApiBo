@@ -4,6 +4,10 @@
 **Description:** API Backoffice documentation for ProAbono
 **Stack:** [Stack]
 
+## Memory
+
+`.claude/memory/MEMORY.md` holds extra rules for this project. Read that index at the start of a session, and a memory file when its line looks relevant to the task.
+
 ## Key terms
 
 These terms hold project-wide.
